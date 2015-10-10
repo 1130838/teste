@@ -1,77 +1,61 @@
 angular.module("imorestApp")
     .controller("WidgetCtrl", function ($scope, $http) {
         $scope.app = "ImorestApp";
+        $scope.awesomeRealEstates = [];
 
+        $scope.lower_price_bound = 0;
+        $scope.upper_price_bound = 250000;
+        $scope.lower_area_bound = 0;
+        $scope.upper_area_bound = 25000;
+        $scope.isCollapsed = true;
 
-
-
-        getData();
+        $scope.predicate = 'search_type';
+        $scope.clearFilter = function () {
+            console.log("xxx");
+            $scope.query = [];
+        };
 
         $http.get('http://phpdev2.dei.isep.ipp.pt/~nsilva/imorest/imoveis.php?').success(function (data) {
-            $scope.awesomeRealEstates = [{
-                tipo_de_anuncio: String,
-                mediador: String
-            }];
 
 
-            $scope.awesomeRealEstates[0].mediador = data[0].mediador;
-            $scope.awesomeRealEstates[0].tipo_de_anuncio =  data[0].tipo_de_anúncio;
-            var texto = "";
-            //texto += '' + data[0].tipo_de_anúncio +'';
-            console.log('textp =' + texto);
-            console.log('awesomeRealEstates[0].mediador = ' + $scope.awesomeRealEstates[0].mediador);
-            console.log('awesomeRealEstates[0].tipo_de_anúncio = ' + $scope.awesomeRealEstates[0].tipo_de_anuncio);
-            $scope.totalRealEstates = $scope.awesomeRealEstates.length;
+            console.log('awesomeRealEstates[0].mediador = ' + data[0].mediador);
+            console.log('awesomeRealEstates[0].tipo_de_anúncio = ' + data[0].tipo_de_anúncio);
+            console.log('awesomeRealEstates[1].mediador = ' + data[1].mediador);
+            console.log('awesomeRealEstates[1].tipo_de_anúncio = ' + data[1].tipo_de_anúncio);
+
+            $scope.totalRealEstates = data.length;
 
 
-            //region removeAccents
-            function cleanUpSpecialChars(str)
-            {
-               /* str = str.replace(/[������]/g,"A");
-                str = str.replace(/[������]/g,"a");
-                str = str.replace(/[����]/g,"E");*/
-                str = str.replace(/[é]/g,"e");
-                str = str.replace(/[ú]/g,"u");
+            $scope.awesomeRealEstates = [
+                {tipo_de_anuncio:  data[0].tipo_de_anúncio}
+            ];
+            /*   var i;
+             for (i = 0; i < $scope.awesomeRealEstates.length; i++) {
 
-                //.... all the rest
-                return str.replace(/[^a-z0-9]/gi,''); // final clean up
-            }
-            //endregion
+             $scope.awesomeRealEstates[i].tipo_de_anuncio = $scope.awesomeRealEstates[i].tipo_de_anúncio;
+             $scope.awesomeRealEstates[i].mediador = $scope.awesomeRealEstates[i].mediador;
+             console.log('awesomeRealEstates[ ' + i + '].tipo_de_anuncio = ' + $scope.awesomeRealEstates[i].tipo_de_anuncio);
+             }*/
+
+            //$scope.awesomeRealEstates[0].tipo_de_anúncio = cleanUpSpecialChars($scope.awesomeRealEstates[0].tipo_de_anúncio);
 
         });
         //console.log('getData = ' + getData());
 
 
-        function getData()  {
-            var xmlhttp = new XMLHttpRequest();
-            var url = "http://phpdev2.dei.isep.ipp.pt/~nsilva/imorest/imoveis.php?"; // all items in the PHP server. The filtering will be made by angularJS
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    var myArr = JSON.parse(xmlhttp.responseText);
-                    console.log('myArr =' + myArr);
+        function cleanUpSpecialChars(str) {
+            str = str.replace(/[ÀÁÂÃÄÅ]/g, "A");
+            str = str.replace(/[àáâãäå]/g, "a");
+            str = str.replace(/[ÈÉÊË]/g, "E");
+            str = str.replace(/[ú]/g, "u");
+            str = str.replace(/[ç]/g, "c");
 
-                    console.log('im in');
-
-                }
-                console.log('im out of if ');
-
-                xmlhttp.open("GET", url, true);
-                xmlhttp.send();
-
-            }
-}
-
-
-
-
-
+            //.... all the rest
+            return str.replace(/[^a-z0-9]/gi, ''); // final clean up
+        }
 
 
     });
-
-
-
-
 
 
 angular.module('imorestApp')

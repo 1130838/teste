@@ -1,18 +1,7 @@
 <!--<div ng-include="'components/navbar/navbar.html'"></div>-->
 <p></p>
 
-<!--BOOTSTRAP CSS STYLE-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-<!--GOOGLE FONTS -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-<!--GOOGLE ICONS-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!--BOOTSTRAP JAVASCRIPT-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"/>
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+
 
 
 
@@ -64,7 +53,11 @@
               <!--<p><b>Searching type:</b></p>-->
               <p></p>
 
-              <select id="tipo_de_anuncio-filter" ng-model="query.tipo_de_anuncio"
+
+
+
+
+              <select id="tipo_de_anuncio-filter" class="form-control" ng-model="query.tipo_de_anuncio"
                       ng-options="item.tipo_de_anuncio as item.tipo_de_anuncio for item in awesomeRealEstates
                       | filter:{tipo_de_imovel:query.tipo_de_imovel || undefined}
                       | filter:{localizacao:query.localizacao || undefined}
@@ -82,7 +75,7 @@
               <!--TYPE FILTER-->
               <!--<p><b>Type:</b></p>-->
               <!--<p class="md-title"></p>-->
-              <select id="tipo_de_imovel-filter" ng-model="query.tipo_de_imovel"
+              <select id="tipo_de_imovel-filter" class="form-control" ng-model="query.tipo_de_imovel"
                       ng-options="item.tipo_de_imovel as item.tipo_de_imovel for item in awesomeRealEstates
                       | filter:{tipo_de_anuncio:query.tipo_de_anuncio || undefined}
                       | filter:{localizacao:query.localizacao || undefined}
@@ -98,7 +91,7 @@
 
               <!--ADDRESS FILTER-->
               <!--<p><b>Address:</b></p>-->
-              <select id="localizacao-filter" class="" ng-model="query.localizacao"
+              <select id="localizacao-filter" class="form-control" ng-model="query.localizacao"
                       ng-options="item.localizacao as item.localizacao for item in awesomeRealEstates
                       | filter:{tipo_de_anuncio:query.tipo_de_anuncio || undefined}
                       | filter:{tipo_de_imovel:query.tipo_de_imovel || undefined}
@@ -114,7 +107,7 @@
 
               <!--BROKER FILTER-->
               <!--<p><b>Broker:</b></p>-->
-              <select id="mediador-filter" class="" ng-model="query.mediador"
+              <select id="mediador-filter" class="form-control" ng-model="query.mediador"
                       ng-options="item.mediador as item.mediador for item in awesomeRealEstates
                       | filter:{tipo_de_anuncio:query.tipo_de_anuncio || undefined}
                       | filter:{tipo_de_imovel:query.tipo_de_imovel || undefined}
