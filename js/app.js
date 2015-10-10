@@ -1,3 +1,3 @@
-angular.module("imorestApp", ["ngMessages", "ngResource"]);
+angular.module("imorestApp", ["ngMessages", "ngResource", 'angular-ranger']);
 
 

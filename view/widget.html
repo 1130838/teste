@@ -65,7 +65,7 @@
                       | filter:priceRange || undefined
                       | filter:areaRange || undefined
                       | unique:'tipo_de_anuncio' || undefined "
-                      material-select watch>
+                     >
                 <option value>Choose the searching type</option>
                 <option ng-repeat="item in awesomeRealEstates| filter:{tipo_de_anuncio:query} || undefined  "></option>
 
@@ -133,7 +133,7 @@
 
               <!--SLIDER SURFACE-->
               <b>Area range:</b>
-              <angular-ranger min="0" max="25000" step="10" min-value="lower_area_bound"
+              <angular-ranger min="0" max="5000" step="10" min-value="lower_area_bound"
                               max-value="upper_area_bound"></angular-ranger>
               <div id="textbox">
                 <p class="alignleft">Min: {{(lower_area_bound | number:0 ) + " m2"}} </p>
