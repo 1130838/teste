@@ -1,4 +1,4 @@
-div #widget_horizontal{
+div #widget_horizontal {
     border: none;
     width: auto;
     clear: none;
@@ -7,33 +7,24 @@ div #widget_horizontal{
     background-color: white;
 }
 
-section div{
+section div {
     border: none;
-    overflow:inherit;
+    overflow: inherit;
 }
 
-.DF div{
-    overflow:inherit;
+.DF div {
+    overflow: inherit;
     width: 300px;
 }
 
-.sidebar-nav div{
-    overflow:visible;
-
+.sidebar-nav div {
+    overflow: visible;
 }
+
 section {
-    /*border: none;*/
-    /*/!*overflow: scroll;*!/*/
     width: auto;
-    /*height: auto;*/
-    /*background: aqua;*/
-    /*margin: auto;*/
-    /*padding: 10px;*/
-    /*position:relative;*/
     padding: 1%;
 }
-
-/*div section > #widget_horizontal div,*/
 
 div #one {
     margin-left: 210px;
@@ -43,17 +34,17 @@ div #one {
 }
 
 div #two {
-    width: 65%;
+    width: 60%;
     background: white;
 
-    float:right
+    float: right
 }
 
 div #results {
     padding: 0.5%;
     position: absolute;
-    border:none;
-    overflow:hidden;
+    border: none;
+    overflow: hidden;
     width: 12%;
     height: 120px;
     background: white;
@@ -61,32 +52,32 @@ div #results {
     /*float:left*/
 }
 
-.center-align div{
-    overflow:inherit;
+.center-align div {
+    overflow: inherit;
 }
 
-.waves-light div{
-    overflow:inherit;
-
-}
-.material-icons div{
-    overflow:inherit;
-
+.waves-light div {
+    overflow: inherit;
 }
 
-.card div{
-    overflow:inherit;
+.material-icons div {
+    overflow: inherit;
+
+}
+
+.card div {
+    overflow: inherit;
     height: inherit;
     width: 150px;
 
 }
 
-.card-content div{
-    overflow:inherit;
+.card-content div {
+    overflow: inherit;
     height: inherit;
     width: 150px;
 }
 
 .responsive-table {
-    overflow:scroll;
+    overflow: scroll;
 }

@@ -1,15 +1,29 @@
-<!--<div ng-include="'components/navbar/navbar.html'"></div>-->
 <p></p>
 
+<!--LOAD CSS STYLES-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+<!--BOOTSTRAP CSS STYLE-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="lib/angular-ranger/angular-ranger.css"/>
+<!--GOOGLE FONTS -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+<!--GOOGLE ICONS-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified CSS -->
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+
+<script type="text/javascript"
+        src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+
+
 <div class="container-fluid" id="widget" ng-controller="WidgetCtrl">
 
-
 	<section>
-
 		<div id="results">
-			<div class="card "> <b>Welcome to Arqsi Widget</b>
+			<div class="card "><b>Welcome to Arqsi Widget</b>
+
 				<div class="card-content">
 					<div class="center-align">
 						<p>Your results :</p>
@@ -19,7 +33,6 @@
 					</div>
 				</div>
 			</div>
-
 
 			<!--RESULTS-->
 			<p></p>
@@ -37,10 +50,7 @@
 		<link rel="stylesheet" href="css/app.css"/>
 
 		<div class="row" id="one">
-
 			<div class="col s12">
-
-				<!--<div class=="container-fluid" ></div>-->
 				<div class="sidebar-nav">
 					<div class="navbar navbar-default" role="navigation">
 						<div class="navbar-header">
@@ -57,7 +67,6 @@
 						     class="navbar-collapse collapse sidebar-navbar-collapse">
 							<ul class="nav navbar-nav">
 
-
 								<!--DYNAMIC FILTERS SELECTORS-->
 
 								<!--SEARCH_TYPE FILTER-->
@@ -68,17 +77,13 @@
                       | filter:{mediador:query.mediador || undefined }
                       | filter:priceRange || undefined
                       | filter:areaRange || undefined
-                      | unique:'tipo_de_anuncio' "
-								        material-select watch>
+                      | unique:'tipo_de_anuncio' " material-select watch>
 									<option value>Choose the searching type</option>
 									<option ng-repeat="item in awesomeRealEstates| filter:{tipo_de_anuncio:query} "></option>
 
 								</select>
 
-
 								<!--TYPE FILTER-->
-								<!--<p><b>Type:</b></p>-->
-								<!--<p class="md-title"></p>-->
 								<select id="tipo_de_imovel-filter" class="DF" ng-model="query.tipo_de_imovel"
 								        ng-options="item.tipo_de_imovel as item.tipo_de_imovel for item in awesomeRealEstates
                       | filter:{tipo_de_anuncio:query.tipo_de_anuncio || undefined}
@@ -86,15 +91,12 @@
                       | filter:{mediador:query.mediador || undefined}
                       | filter:priceRange || undefined
                       | filter:areaRange || undefined
-                      | unique:'tipo_de_imovel' || undefined"
-								        material-select watch>
+                      | unique:'tipo_de_imovel' || undefined" material-select watch>
 									<option value>Choose the type</option>
 									<option ng-repeat="item in awesomeRealEstates | filter:{tipo_de_imovel:query}"></option>
 								</select>
 
-
 								<!--ADDRESS FILTER-->
-								<!--<p><b>Address:</b></p>-->
 								<select id="localizacao-filter" class="DF" ng-model="query.localizacao"
 								        ng-options="item.localizacao as item.localizacao for item in awesomeRealEstates
                       | filter:{tipo_de_anuncio:query.tipo_de_anuncio || undefined}
@@ -102,15 +104,12 @@
                       | filter:{mediador:query.mediador || undefined}
                       | filter:priceRange || undefined
                       | filter:areaRange || undefined
-                      | unique:'localizacao' || undefined"
-								        material-select watch>
+                      | unique:'localizacao' || undefined" material-select watch>
 									<option value>Choose the address</option>
 									<option ng-repeat="item in awesomeRealEstates | filter:{localizacao:query}"></option>
 								</select>
 
-
 								<!--BROKER FILTER-->
-								<!--<p><b>Broker:</b></p>-->
 								<select id="mediador-filter" class="DF" ng-model="query.mediador"
 								        ng-options="item.mediador as item.mediador for item in awesomeRealEstates
                       | filter:{tipo_de_anuncio:query.tipo_de_anuncio || undefined}
@@ -118,18 +117,14 @@
                       | filter:{localizacao:query.localizacao || undefined}
                       | filter:priceRange
                       | filter:areaRange
-                      | unique:'mediador'"
-								        material-select watch>
+                      | unique:'mediador'" material-select watch>
 									<option value>Choose the broker</option>
 									<option ng-repeat="item in awesomeRealEstates | filter:{mediador:query}"></option>
 								</select>
 
-
 								<!--CLEAR FILTERS-->
-
 								<div class="center-align">
 									<a class="waves-effect waves-light btn" ng-click="clearFilter()">Clear Filters </a>
-
 									<p></p>
 								</div>
 
@@ -159,7 +154,6 @@
 								</div>
 								<div style="clear: both;"></div>
 
-
 							</ul>
 						</div>
 						<!--/.nav-collapse -->
@@ -169,7 +163,7 @@
 
 		</div>
 
-		<!--table materialize-->
+		<!--table with results-->
 
 		<div class="row" id="two">
 			<div class="col s12">
@@ -190,10 +184,7 @@
 					</thead>
 
 					<tbody>
-						<!--ng-repeat="item in filteredResults = (awesomeRealEstates | filter:query.tipo_de_anuncio  || undefined  )">-->
-						<tr
-								ng-repeat="item in filteredResults = (awesomeRealEstates  | unique:'tipo_de_anuncio' && 'tipo_de_imovel' && 'localização' && 'mediador' && 'area' &&'preco' | orderBy:predicate | filter:query.tipo_de_anuncio  || undefined | filter:query.tipo_de_imovel  || undefined | filter:query.localizacao  || undefined| filter:query.mediador  || undefined | filter:priceRange | filter: areaRange )">
-
+						<tr ng-repeat="item in filteredResults = (awesomeRealEstates  | unique:'tipo_de_anuncio' && 'tipo_de_imovel' && 'localização' && 'mediador' && 'area' &&'preco' | orderBy:predicate | filter:query.tipo_de_anuncio  || undefined | filter:query.tipo_de_imovel  || undefined | filter:query.localizacao  || undefined| filter:query.mediador  || undefined | filter:priceRange | filter: areaRange )">
 							<td>{{item.tipo_de_anuncio}}</td>
 							<td>{{item.tipo_de_imovel}}</td>
 							<td>{{item.localizacao}}</td>
@@ -208,8 +199,8 @@
 			</div>
 		</div>
 
-
 	</section>
 </div>
-</div>
+
+
 
