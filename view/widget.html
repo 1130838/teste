@@ -6,16 +6,29 @@
 <div class="container-fluid" id="widget" ng-controller="WidgetCtrl">
 
 
-
 	<section>
 
 		<div id="results">
+			<div class="card "> <b>Welcome to Arqsi Widget</b>
+				<div class="card-content">
+					<div class="center-align">
+						<p>Your results :</p>
+						<a class="waves-light btn "><i
+								class="material-icons left">done</i>{{filteredResults.length}}
+						</a>
+					</div>
+				</div>
+			</div>
+
+
 			<!--RESULTS-->
 			<p></p>
+
 			<div class="center-align"> Welcome to the Imorest Widget
-				<a class="waves-light btn" ><i
-						class="material-icons right" >done</i>{{filteredResults.length}}   results
+				<a class="waves-light btn"><i
+						class="material-icons right">done</i>{{filteredResults.length}} results
 				</a>
+
 				<p></p>
 			</div>
 
@@ -93,7 +106,7 @@
 								        material-select watch>
 									<option value>Choose the address</option>
 									<option ng-repeat="item in awesomeRealEstates | filter:{localizacao:query}"></option>
-									 </select>
+								</select>
 
 
 								<!--BROKER FILTER-->
@@ -115,8 +128,7 @@
 								<!--CLEAR FILTERS-->
 
 								<div class="center-align">
-									<a class="waves-effect waves-light btn" ng-click="clearFilter()"><i
-											class="material-icons right">cached</i>Clear Filters</a>
+									<a class="waves-effect waves-light btn" ng-click="clearFilter()">Clear Filters </a>
 
 									<p></p>
 								</div>
@@ -157,44 +169,44 @@
 
 		</div>
 
-			<!--table materialize-->
+		<!--table materialize-->
 
-			<div class="row" id="two">
-				<div class="col s12">
-					<table class="responsive-table table-striped">
-						<thead>
-							<tr>
-								<th data-field="tipo_de_anuncio">Search</th>
-								<th data-field="tipo_de_imovel">Type</th>
-								<th data-field="localizacao">Adress</th>
-								<th data-field="mediador">Broker</th>
-								<th data-field="area"><a class="blue-text text-darken-2" href=""
-								                         ng-click="predicate='area' ; reverse=!reverse">Surface(m2)</a>
-								</th>
-								<th data-field="preco"><a class="blue-text text-darken-2" href=""
-								                          ng-click="predicate='preco'">Price(€)</a></th>
-								<th data-field="fotos">Gallery</th>
-							</tr>
-						</thead>
+		<div class="row" id="two">
+			<div class="col s12">
+				<table class="responsive-table table-striped">
+					<thead>
+						<tr>
+							<th data-field="tipo_de_anuncio">Search</th>
+							<th data-field="tipo_de_imovel">Type</th>
+							<th data-field="localizacao">Adress</th>
+							<th data-field="mediador">Broker</th>
+							<th data-field="area"><a class="blue-text text-darken-2" href=""
+							                         ng-click="predicate='area' ; reverse=!reverse">Surface(m2)</a>
+							</th>
+							<th data-field="preco"><a class="blue-text text-darken-2" href=""
+							                          ng-click="predicate='preco'">Price(€)</a></th>
+							<th data-field="fotos">Gallery</th>
+						</tr>
+					</thead>
 
-						<tbody>
-							<!--ng-repeat="item in filteredResults = (awesomeRealEstates | filter:query.tipo_de_anuncio  || undefined  )">-->
-							<tr
-									ng-repeat="item in filteredResults = (awesomeRealEstates  | unique:'tipo_de_anuncio' && 'tipo_de_imovel' && 'localização' && 'mediador' && 'area' &&'preco' | orderBy:predicate | filter:query.tipo_de_anuncio  || undefined | filter:query.tipo_de_imovel  || undefined | filter:query.localizacao  || undefined| filter:query.mediador  || undefined | filter:priceRange | filter: areaRange )">
+					<tbody>
+						<!--ng-repeat="item in filteredResults = (awesomeRealEstates | filter:query.tipo_de_anuncio  || undefined  )">-->
+						<tr
+								ng-repeat="item in filteredResults = (awesomeRealEstates  | unique:'tipo_de_anuncio' && 'tipo_de_imovel' && 'localização' && 'mediador' && 'area' &&'preco' | orderBy:predicate | filter:query.tipo_de_anuncio  || undefined | filter:query.tipo_de_imovel  || undefined | filter:query.localizacao  || undefined| filter:query.mediador  || undefined | filter:priceRange | filter: areaRange )">
 
-								<td>{{item.tipo_de_anuncio}}</td>
-								<td>{{item.tipo_de_imovel}}</td>
-								<td>{{item.localizacao}}</td>
-								<td> {{item.mediador}}</td>
-								<td> {{item.area}}</td>
-								<td> {{item.preco}}</td>
-								<td ng-repeat="fotos in item.fotos"><a class="blue-text text-darken-2" href={{fotos}}
-								                                       target="_blank">Photo</a></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+							<td>{{item.tipo_de_anuncio}}</td>
+							<td>{{item.tipo_de_imovel}}</td>
+							<td>{{item.localizacao}}</td>
+							<td> {{item.mediador}}</td>
+							<td> {{item.area}}</td>
+							<td> {{item.preco}}</td>
+							<td ng-repeat="fotos in item.fotos"><a class="blue-text text-darken-2" href={{fotos}}
+							                                       target="_blank">Photo</a></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
+		</div>
 
 
 	</section>

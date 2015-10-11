@@ -18,7 +18,7 @@ section div{
 }
 
 .sidebar-nav div{
-    overflow:inherit;
+    overflow:visible;
 
 }
 section {
@@ -36,7 +36,7 @@ section {
 /*div section > #widget_horizontal div,*/
 
 div #one {
-    margin-left: 180px;
+    margin-left: 210px;
     width: 20%;
     background: white;
     float: left;
@@ -50,11 +50,11 @@ div #two {
 }
 
 div #results {
-    padding: 1%;
+    padding: 0.5%;
     position: absolute;
     border:none;
     overflow:hidden;
-    width: 10%;
+    width: 12%;
     height: 120px;
     background: white;
 
@@ -74,3 +74,19 @@ div #results {
 
 }
 
+.card div{
+    overflow:inherit;
+    height: inherit;
+    width: 150px;
+
+}
+
+.card-content div{
+    overflow:inherit;
+    height: inherit;
+    width: 150px;
+}
+
+.responsive-table {
+    overflow:scroll;
+}
