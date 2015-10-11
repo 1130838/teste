@@ -1,7 +1,7 @@
 angular.module("imorestApp")
     .controller("WidgetCtrl", function ($scope, $http) {
         $scope.app = "ImorestApp";
-        $scope.awesomeRealEstates = [];
+     //   $scope.awesomeRealEstates = [];
 
         $scope.lower_price_bound = 0;
         $scope.upper_price_bound = 250000;
@@ -9,22 +9,29 @@ angular.module("imorestApp")
         $scope.upper_area_bound = 5000;
         $scope.isCollapsed = true;
 
+        $scope.selectedRE = [];
 
+        $scope.example1model = []; $scope.example1data = [ {id: 1, label: "David"}, {id: 2, label: "Jhon"}, {id: 3, label: "Danny"}];
+
+        $scope.predicate = 'search_type';
+        $scope.clearFilter = function () {
+            console.log("xxx");
+            $scope.query = [];
+        };
+
+
+
+        //var objSemAcentos ="";
         $http.get('http://phpdev2.dei.isep.ipp.pt/~nsilva/imorest/imoveis.php?').success(function (data) {
 
 
-            $scope.predicate = 'search_type';
-            $scope.clearFilter = function () {
-                console.log("xxx");
-                $scope.query = [];
-            };
 
             $scope.totalRealEstates = data.length;
 
-            $scope.awesomeRealEstates = data;
+           // $scope.awesomeRealEstates = data;
 
-            console.log('$scope.awesomeRealEstates[i].tipo_de_anuncio = ' + $scope.awesomeRealEstates[0].tipo_de_anúncio);
-            var JsonComAcentos = JSON.stringify($scope.awesomeRealEstates);
+           // console.log('$scope.awesomeRealEstates[i].tipo_de_anuncio = ' + $scope.awesomeRealEstates[0].tipo_de_anúncio);
+            var JsonComAcentos = JSON.stringify(data);
             console.log('$scope.awesomeRealEstates JsonComAcentos= ' + JsonComAcentos);
             var JsonSemAcentos = cleanUpSpecialChars(JsonComAcentos);
             console.log('$scope.awesomeRealEstates JsonSemAcentos= ' + JsonSemAcentos);
@@ -32,7 +39,8 @@ angular.module("imorestApp")
             var objSemAcentos = JSON.parse(JsonSemAcentos);
             var objComAcentos = JSON.parse(JsonComAcentos);
 
-            $scope.awesomeRealEstates = objSemAcentos;
+             $scope.awesomeRealEstates = objSemAcentos;
+
 
             /*   var i;
              for (i = 0; i < $scope.awesomeRealEstates.length; i++) {
@@ -45,7 +53,9 @@ angular.module("imorestApp")
             //$scope.awesomeRealEstates[0].tipo_de_anúncio = cleanUpSpecialChars($scope.awesomeRealEstates[0].tipo_de_anúncio);
 
         });
-        //console.log('getData = ' + getData());
+
+
+
 
 
         function cleanUpSpecialChars(str) {

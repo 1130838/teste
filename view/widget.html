@@ -1,22 +1,7 @@
 <!--<div ng-include="'components/navbar/navbar.html'"></div>-->
 <p></p>
 
-
-
-
-
-
-<!--<script src="/lib/jquery/jquery-2.1.4.min.js"></script>-->
-
-
 <div class="container" id="widget" ng-controller="WidgetCtrl">
-
-    <!--SCRIPT LOADING-->
-<!--    <script src="../lib/angular/angular.js"></script>
-    <script src="../lib/angular/angular-messages.js"></script>
-    <script src="../js/app.js"></script>
-    <script src="../js/controllers/WidgetCtrl.js"></script>
-    <script src="../lib/jquery/jquery-2.1.4.min.js"></script>-->
 
   <div class="row">
     <div class="col-sm-3">
@@ -53,21 +38,50 @@
               <!--<p><b>Searching type:</b></p>-->
               <p></p>
 
+<!--
+	            <div class="btn-group">
+		            <button type="button" class="btn btn-default dropdown-toggle" ng-click="toggleSelect()" ng-disabled="disabled" ng-class="{'error': !valid()}">
+			            {{header}}
+			            <span class="caret"></span>
+		            </button>
+		            <ul class="dropdown-menu">
+			            <li>
+				            <input class="form-control input-sm" type="text" ng-model="searchText.label" autofocus="autofocus" placeholder="Filter" />
+			            </li>
+			            <li ng-show="multiple" role="presentation" class="">
+				            <button class="btn btn-link btn-xs" ng-click="checkAll()" type="button"><i class="glyphicon glyphicon-ok"></i> Check all</button>
+				            <button class="btn btn-link btn-xs" ng-click="uncheckAll()" type="button"><i class="glyphicon glyphicon-remove"></i> Uncheck all</button>
+			            </li>
+			            <li ng-repeat="item in awesomeRealEstates |  filter:{tipo_de_anuncio:query} || undefined">
+				            <a ng-click="select(i); focus()">
+					            <i class='glyphicon' ng-class="{'glyphicon-ok': i.checked, 'empty': !i.checked}"></i> {{i.label}}</a>
+			            </li>
+		            </ul>
+	            </div>
 
+
+	            <h1>Example</h1>
+	            <am-multiselect class="input-lg" multiple="true" ms-selected ="There are {{awesomeRealEstates.length}} car(s) selected"
+	                            ng-model="query.tipo_de_anuncio" ms-header="Select Some Cars"
+	                            options="item.tipo_de_anuncio as item.tipo_de_anuncio for item in awesomeRealEstates  | unique:'tipo_de_anuncio' || undefined "
+	                            change="selected()"></am-multiselect>
+	            <div class="well well-sm">
+		            {{query.tipo_de_anuncio}}
+	            </div>-->
 
 
 
               <select id="tipo_de_anuncio-filter" class="form-control" ng-model="query.tipo_de_anuncio"
                       ng-options="item.tipo_de_anuncio as item.tipo_de_anuncio for item in awesomeRealEstates
-                      | filter:{tipo_de_imovel:query.tipo_de_imovel || undefined}
-                      | filter:{localizacao:query.localizacao || undefined}
-                      | filter:{mediador:query.mediador || undefined}
-                      | filter:priceRange || undefined
-                      | filter:areaRange || undefined
-                      | unique:'tipo_de_anuncio' || undefined "
+                      | filter:{tipo_de_imovel:query.tipo_de_imovel }
+                      | filter:{localizacao:query.localizacao }
+                      | filter:{mediador:query.mediador }
+                      | filter:priceRange
+                      | filter:areaRange
+                      | unique:'tipo_de_anuncio' "
                      >
                 <option value>Choose the searching type</option>
-                <option ng-repeat="item in awesomeRealEstates| filter:{tipo_de_anuncio:query} || undefined  "></option>
+                <option ng-repeat="item in awesomeRealEstates| filter:{tipo_de_anuncio:query} "></option>
 
               </select>
 
@@ -191,9 +205,11 @@
             </thead>
 
             <tbody>
+	              <!--ng-repeat="item in filteredResults = (awesomeRealEstates | filter:query.tipo_de_anuncio  || undefined  )">-->
               <tr
                 ng-repeat="item in filteredResults = (awesomeRealEstates | orderBy:predicate | unique:'tipo_de_anuncio' && 'tipo_de_imovel' && 'localização' && 'mediador' && 'area' &&'preco' | filter:query.tipo_de_anuncio  || undefined | filter:query.tipo_de_imovel  || undefined | filter:query.localizacao  || undefined| filter:query.mediador  || undefined | filter:priceRange | filter: areaRange)">
-                <td>{{item.tipo_de_anuncio}}</td>
+
+	              <td>{{item.tipo_de_anuncio}}</td>
                 <td>{{item.tipo_de_imovel}}</td>
                 <td>{{item.localizacao}}</td>
                 <td> {{item.mediador}}</td>
