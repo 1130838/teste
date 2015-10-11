@@ -3,18 +3,18 @@ angular.module("imorestApp")
 
         $scope.title = "ImorestApp";
 
-        $scope.lower_price_bound = 0;
-        $scope.upper_price_bound = 250000;
-        $scope.lower_area_bound = 0;
-        $scope.upper_area_bound = 5000;
-        $scope.isCollapsed = true;
-
         // retrieve results from php server. filtering will be made with angular filters
         $http.get('http://phpdev2.dei.isep.ipp.pt/~nsilva/imorest/imoveis.php?').success(function (data) {
 
+            $scope.lower_price_bound = 0;
+            $scope.upper_price_bound = 250000;
+            $scope.lower_area_bound = 0;
+            $scope.upper_area_bound = 5000;
+            $scope.isCollapsed = true;
+
             $scope.predicate = 'search_type';
             $scope.clearFilter = function () {
-                console.log("xxx");
+                console.log("cleaned");
                 $scope.query = [];
             };
 
@@ -46,7 +46,7 @@ angular.module("imorestApp")
             return (parseInt(item['area']) >= $scope.lower_area_bound && parseInt(item['area']) <= $scope.upper_area_bound);
         };
 
-/*// jquery plugin init
+// jquery plugin init
         $(function () {
             // your jquery goes here
             var options = [
@@ -56,7 +56,7 @@ angular.module("imorestApp")
             Materialize.scrollFire(options);
 
 
-        });*/
+        });
 
         Materialize.toast('Loading results.. ', 2000); // 2000 is the duration of the toast
 
