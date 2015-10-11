@@ -1,9 +1,76 @@
+div #widget_horizontal{
+    border: none;
+    width: auto;
+    clear: none;
+    /*position:relative;*/
+    /*overflow: scroll;*/
+    background-color: white;
+}
 
+section div{
+    border: none;
+    overflow:inherit;
+}
 
-#widget_horizontal {
-    border: 1px solid black;
-    width: 1200px;
-    overflow: scroll;
-    background-color: lightsteelblue;
+.DF div{
+    overflow:inherit;
+    width: 300px;
+}
+
+.sidebar-nav div{
+    overflow:inherit;
 
 }
+section {
+    /*border: none;*/
+    /*/!*overflow: scroll;*!/*/
+    width: auto;
+    /*height: auto;*/
+    /*background: aqua;*/
+    /*margin: auto;*/
+    /*padding: 10px;*/
+    /*position:relative;*/
+    padding: 1%;
+}
+
+/*div section > #widget_horizontal div,*/
+
+div #one {
+    margin-left: 180px;
+    width: 20%;
+    background: white;
+    float: left;
+}
+
+div #two {
+    width: 65%;
+    background: white;
+
+    float:right
+}
+
+div #results {
+    padding: 1%;
+    position: absolute;
+    border:none;
+    overflow:hidden;
+    width: 10%;
+    height: 120px;
+    background: white;
+
+    /*float:left*/
+}
+
+.center-align div{
+    overflow:inherit;
+}
+
+.waves-light div{
+    overflow:inherit;
+
+}
+.material-icons div{
+    overflow:inherit;
+
+}
+
