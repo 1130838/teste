@@ -21,36 +21,19 @@
 <section>
 	<div class="container-fluid" id="widget" ng-controller="WidgetCtrl">
 
-		<div id="results">
-			<!--<div class="card "><b>Welcome to Arqsi Widget</b>
-
-				<div class="card-content">
-					<div class="center-align">
-						<p>Your results :</p>
-						<a class="waves-light btn "><i
-								class="material-icons left">done</i>{{filteredResults.length}}
-						</a>
-					</div>
-				</div>
-			</div>-->
-
 			<!--RESULTS-->
+		<div id="results">
 			<p style="text-align: center"><b>Welcome the Arqsi Widget</b></p>
-
 			<p class="center-align"><b>Your results</b></p>
-
 			<div class="center-align" >
 				<a class="waves-light btn "><i
 						class="material-icons left ">done</i>{{filteredResults.length}}
 				</a>
-
 				<p></p>
 			</div>
-
 		</div>
 
 		<link rel="stylesheet" href="css/app.css"/>
-
 		<div class="row" id="one">
 			<div class="col s12">
 				<div class="sidebar-nav">
@@ -82,8 +65,8 @@
                       | unique:'tipo_de_anuncio' " material-select watch>
 									<option value>Choose the searching</option>
 									<option ng-repeat="item in awesomeRealEstates| filter:{tipo_de_anuncio:query} "></option>
-
 								</select>
+
 
 								<!--TYPE FILTER-->
 								<select id="tipo_de_imovel-filter" class="DF" ng-model="query.tipo_de_imovel"
@@ -98,6 +81,7 @@
 									<option ng-repeat="item in awesomeRealEstates | filter:{tipo_de_imovel:query}"></option>
 								</select>
 
+
 								<!--ADDRESS FILTER-->
 								<select id="localizacao-filter" class="DF" ng-model="query.localizacao"
 								        ng-options="item.localizacao as item.localizacao for item in awesomeRealEstates
@@ -110,6 +94,7 @@
 									<option value>Choose the address</option>
 									<option ng-repeat="item in awesomeRealEstates | filter:{localizacao:query}"></option>
 								</select>
+
 
 								<!--BROKER FILTER-->
 								<select id="mediador-filter" class="DF" ng-model="query.mediador"
@@ -127,7 +112,6 @@
 								<!--CLEAR FILTERS-->
 								<div class="center-align">
 									<a class="waves-effect waves-light btn" ng-click="clearFilter()">Clear Filters </a>
-
 									<p></p>
 								</div>
 
