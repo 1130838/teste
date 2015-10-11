@@ -27,8 +27,8 @@ section {
 }
 
 div #one {
-    margin-left: 210px;
-    width: 20%;
+    margin-left: 230px;
+    width: 17%;
     background: white;
     float: left;
 }
@@ -44,8 +44,8 @@ div #results {
     padding: 0.5%;
     position: absolute;
     border: none;
-    overflow: hidden;
-    width: 12%;
+    overflow: auto;
+    width: 13%;
     height: 120px;
     background: white;
 

@@ -18,11 +18,11 @@
         src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
 
 
-<div class="container-fluid" id="widget" ng-controller="WidgetCtrl">
+<section>
+	<div class="container-fluid" id="widget" ng-controller="WidgetCtrl">
 
-	<section>
 		<div id="results">
-			<div class="card "><b>Welcome to Arqsi Widget</b>
+			<!--<div class="card "><b>Welcome to Arqsi Widget</b>
 
 				<div class="card-content">
 					<div class="center-align">
@@ -32,14 +32,16 @@
 						</a>
 					</div>
 				</div>
-			</div>
+			</div>-->
 
 			<!--RESULTS-->
-			<p></p>
+			<p style="text-align: center"><b>Welcome the Arqsi Widget</b></p>
 
-			<div class="center-align"> Welcome to the Imorest Widget
-				<a class="waves-light btn"><i
-						class="material-icons right">done</i>{{filteredResults.length}} results
+			<p class="center-align"><b>Your results</b></p>
+
+			<div class="center-align" >
+				<a class="waves-light btn "><i
+						class="material-icons left ">done</i>{{filteredResults.length}}
 				</a>
 
 				<p></p>
@@ -78,7 +80,7 @@
                       | filter:priceRange || undefined
                       | filter:areaRange || undefined
                       | unique:'tipo_de_anuncio' " material-select watch>
-									<option value>Choose the searching type</option>
+									<option value>Choose the searching</option>
 									<option ng-repeat="item in awesomeRealEstates| filter:{tipo_de_anuncio:query} "></option>
 
 								</select>
@@ -125,6 +127,7 @@
 								<!--CLEAR FILTERS-->
 								<div class="center-align">
 									<a class="waves-effect waves-light btn" ng-click="clearFilter()">Clear Filters </a>
+
 									<p></p>
 								</div>
 
@@ -199,8 +202,8 @@
 			</div>
 		</div>
 
-	</section>
-</div>
+	</div>
+</section>
 
 
 
