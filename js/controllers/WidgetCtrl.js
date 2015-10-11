@@ -13,11 +13,7 @@ angular.module("imorestApp")
 
         $scope.example1model = []; $scope.example1data = [ {id: 1, label: "David"}, {id: 2, label: "Jhon"}, {id: 3, label: "Danny"}];
 
-        $scope.predicate = 'search_type';
-        $scope.clearFilter = function () {
-            console.log("xxx");
-            $scope.query = [];
-        };
+
 
 
 
@@ -25,10 +21,15 @@ angular.module("imorestApp")
         $http.get('http://phpdev2.dei.isep.ipp.pt/~nsilva/imorest/imoveis.php?').success(function (data) {
 
 
+            $scope.predicate = 'search_type';
+            $scope.clearFilter = function () {
+                console.log("xxx");
+                $scope.query = [];
+            };
 
-            $scope.totalRealEstates = data.length;
+          //  $scope.totalRealEstates = data.length;
 
-           // $scope.awesomeRealEstates = data;
+            $scope.awesomeRealEstates = data;
 
            // console.log('$scope.awesomeRealEstates[i].tipo_de_anuncio = ' + $scope.awesomeRealEstates[0].tipo_de_anúncio);
             var JsonComAcentos = JSON.stringify(data);
@@ -54,19 +55,12 @@ angular.module("imorestApp")
 
         });
 
-
-
-
-
         function cleanUpSpecialChars(str) {
 
             str = str.replace(/[ú]/g, "u");
             str = str.replace(/[ç]/g, "c");
             str = str.replace(/[ó]/g, "o");
             str = str.replace(/[áã]/g, "a");
-
-
-            //.... all the rest
             return str; // final clean up
         }
 
@@ -84,7 +78,7 @@ angular.module("imorestApp")
             // your jquery goes here
             var options = [
                 {selector: '.class', offset: 200, callback: 'globalFunction()'},
-                {selector: '.other-class', offset: 200, callback: 'globalFunction()'},
+                {selector: '.other-class', offset: 200, callback: 'globalFunction()'}
             ];
             Materialize.scrollFire(options);
 
